@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+    <style>
+        body{
+            height: 100%;
+        }
+        @font-face {
+            font-family: '8-bit_operator_8regular';
+            src: url('./font/8bitoperatorplus8-regular-webfont.woff') format('woff2'),
+                url('./font/8bitoperatorplus8-regular-webfont.woff2') format('woff');
+            font-weight: normal;
+            font-style: normal;
+
+        }
+        #inicio{
+            display: grid;
+            grid-template-columns: repeat(12,1fr);
+            grid-template-rows: repeat(6,1fr);
+            justify-items: center;
+        }
+        
+        .boton{
+            background-image: url("images/pulsado.png");
+            background-size: cover;
+            width: 200px;
+            height: 80px;
+            margin: 20px;
+            font-family: '8-bit_operator_8regular';
+            font-size: 40px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+        #start{
+            visibility:hidden;
+            display: flex;
+            justify-content: center;
+            
+        }
+        #inicio>.boton{
+            grid-area: 5/6/6/8;
+        }
+        #coin{
+            grid-area: 2/6/2/8;
+            animation: vibrate 2s ease infinite normal backwards;  
+        }
+        #bounty{
+            grid-area: 2/2/3/6;
+        }
+        #hunter{
+            grid-area: 2/8/3/12;
+        }
+        #formulario{
+            display: none;
+        }
+        #players{
+            visibility:hidden;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+       
+        @keyframes vibrate {
+            0% {transform: translate(0);}
+            10% {transform: translate(-2px, -2px);}
+            20% {transform: translate(2px, -2px);}
+            30% {transform: translate(-2px, 2px);}
+            40% {transform: translate(2px, 2px);}
+            50% {transform: translate(-2px, -2px);}
+            60% {transform: translate(2px, -2px);}
+            70% {transform: translate(-2px, 2px);}
+            80% {transform: translate(-2px, -2px);}
+            90% {transform: translate(2px, -2px);}
+            100% {transform: translate(0);}
+        }
+        FORM{
+            background-color: brown;
+            width: 400px;
+            margin: 20px;
+            display: none;
+        }
+        #form{
+            display: flex;
+            justify-content: center;
+        }
+        #form #start{
+            justify-content: center;
+        }
+        #pie{
+            display:flex;
+            align-items: flex-start;
+            justify-content: center;
+        }
+        @media  (max-width: 1400px) and (min-width:1001px){
+            #form{
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap
+        }
+            
+     }
+        @media  (max-width: 1000px){
+            #inicio{
+                display:flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            #form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+       
+    }
+    </style>
+    <script>
+        window.addEventListener("load", inicio);
+        function inicio(){
+            document.getElementsByClassName("boton")[0].addEventListener("click", pulsar);
+            document.getElementById("2player").addEventListener("click", formularioboton2);
+            document.getElementById("3player").addEventListener("click", formularioboton3);
+            document.getElementById("4player").addEventListener("click", formularioboton4);
+           
+        }
+       function pulsar(){
+        document.getElementsByClassName("boton")[0].style.display.transform = "scale(0.5)";
+        // saltar al formulario
+        document.getElementById("inicio").animate([
+            // keyframes
+            { opacity: 0 },
+                { opacity: 100 },
+
+                { opacity: 0 },
+                ], {
+            // timing options
+                duration: 500,
+            });  
+            
+        setTimeout(() => {
+            document.getElementById("inicio").style.display = "none";
+            document.getElementById("players").style.visibility = "visible";
+        }, 1000);
+        
+        
+        
+       }
+       function formularioboton2(){
+        document.getElementById("F1").style.display = "block";
+        document.getElementById("F2").style.display = "block";
+        document.getElementById("F3").style.display = "none";
+        document.getElementById("F4").style.display = "none";
+        document.getElementById("start").style.visibility = "visible";
+       }
+       function formularioboton3(){
+        document.getElementById("F1").style.display = "block";
+        document.getElementById("F2").style.display = "block";
+        document.getElementById("F3").style.display = "block";
+        document.getElementById("F4").style.display = "none";
+        document.getElementById("start").style.visibility = "visible";
+       }
+       function formularioboton4(){
+        document.getElementById("F1").style.display = "block";
+        document.getElementById("F2").style.display = "block";
+        document.getElementById("F3").style.display = "block";
+        document.getElementById("F4").style.display = "block";
+        document.getElementById("start").style.visibility = "visible";
+
+       }
+
+    </script>
+</head>
+<body>
+    <audio id="audio" autoplay>
+        <source src="./retroWave.mp3" type="audio/mpeg" >
+    </audio>
+
+    <div id="inicio">
+        <img id="bounty" src="images/bounty.svg" height="100px">
+        <img id="coin" src="images/coin.svg" height="100px">
+        <img id="hunter" src="images/hunter.svg" height="100px">
+
+        <div class="boton">START</div>
+    </div>
+
+    <div id="players">
+        <div id="2player" class="boton">2 player</div>
+        <div id="3player" class="boton">3 player</div>
+        <div id="4player" class="boton">4 player</div>
+    </div>
+    <div id="form">  
+        <FORM id="F1" action="/" method="post">
+            <label>Nombre Jugador1:</label> 
+            <input type="text" name="Nombre" size="25" maxlength="50" required>
+            <br>
+            <label>Color Jugador1:</label>
+            <select name="colores1" class="j1">
+                                <option selected value="#FF0000">Rojo</option>
+                                <option value="#F3FF00">Amarillo</option>
+                                <option value="#43FF00">Verde</option>
+                            </select>
+        </FORM>                    
+    
+        <FORM id="F2" action="/" method="post">      
+            <label>Jugador2:</label> 
+            <input type="text" id="jugador2" name="Nombre" size="25" maxlength="50" required>
+            <br>
+            <label>Color Jugador2:</label>
+                <select name="colores1" id="jugador2">
+                            <option selected value="#FF0000">Rojo</option>
+                            <option value="#F3FF00">Amarillo</option>
+                            <option value="#43FF00">Verde</option>
+                </select>
+        </FORM>                  
+    
+        <FORM id="F3" action="/" method="post">    
+           <label>Nombre Jugador3:</label>
+            <input type="text" id="jugador3" name="Nombre" size="25" maxlength="50" required>
+            <br>
+            <label>Color Jugador3:</label> 
+                <select name="colores1" id="jugador3">
+                            <option selected value="#FF0000">Rojo</option>
+                            <option value="#F3FF00">Amarillo</option>
+                            <option value="#43FF00">Verde</option>
+                </select>
+        </FORM>                    
+                    
+        <FORM id="F4" action="/" method="post">        
+            <label>Nombre Jugador4:</label> 
+            <input type="text" id="jugador4" name="Nombre" size="25" maxlength="50" required>
+            <br>
+            Color Jugador4: 
+                <select name="colores2" id="jugador4">
+                            <option value="#000AFF">Azul</option>
+                            <option value="#FF00C3">Rosa</option>
+                            <option value="#8200FF">Morado</option>
+                </select>
+                           
+               
+        </FORM> 
+        </div>
+        <div id="pie">
+            <div id="start" class="boton">JUGAR</div>
+        </div>
+       
+        
+
+   
+    
+    
+    <!-- particles.js container -->
+    <div id="particles-js"></div> 
+    <!-- particles.js lib - https://github.com/VincentGarreau/particles.js -->
+    <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> <!-- stats.js lib -->
+    <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
