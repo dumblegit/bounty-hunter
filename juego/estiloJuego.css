@@ -1,0 +1,126 @@
+h1{
+	font-size: 44px;
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+jugadores{
+	width: 1200px;
+	display: grid;
+	grid-template-areas:
+	"j1 t t j2"
+	"j3 t t j4";
+	margin: auto;
+}
+h1, jugadores *{
+	color: yellow;
+}
+.j1,.j2,.j3,.j4{
+	position: relative;
+	top:-20px;
+	width: 240px;
+	height: 300px;
+	z-index: -1;
+}
+.j1{
+	margin-right: 30px;
+	grid-area: j1;
+}
+.j2{
+	margin-left: 30px;
+	grid-area: j2;
+}
+.j3{
+	margin-right: 30px;
+	grid-area: j3;
+}
+.j4{
+	margin-left: 30px;
+	grid-area: j4;
+}
+.nombreJugador{
+	text-align: center;
+	font-size: 24px;
+	position: relative;
+	top: -65px;
+}
+tablero{
+	display: grid;
+	width: 660px;
+	height: 660px;
+	grid-area: t;
+}
+linea, fila{
+	display: grid;
+	grid-template-columns: repeat(17,auto);
+	grid-template-rows: repeat(17,auto);
+}
+.punto{
+	width: 20px;
+	height: 20px;
+	background-color: black;
+}
+.bordeH{
+	width: 60px;
+	height: 20px;
+	background-color: grey;
+}
+.bordeV{
+	width: 20px;
+	height: 60px;
+	background-color: grey;
+}
+.cuadro{
+	width: 60px;
+	height: 60px;
+}
+img[src$="coinStatic.png"]{
+	text-align: left;
+	position: relative;
+	top:-80px;
+}
+resultado{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	
+}
+resultado *{
+	color: black;
+}
+resultado *:not(.boton){
+	text-align: center;
+	height: 180px;
+	width: 600px;
+	background-color: lightgrey;
+	border-radius: 20px;
+	margin: 10px;
+	font-size: 40px;
+	
+}
+resultado div img:first-of-type{
+	float: left;
+	width: 160px;
+	height: 160px;
+}
+resultado div img:last-of-type{
+	position: relative;
+	top: 16px;
+	width: 40px;
+	height: 40px;
+
+}
+@media (max-width: 1200px){
+	jugadores{
+		grid-template-areas:
+		"t t"
+		"t t"
+		"j1 j2"
+		"j3 j4";
+		width: 660px;
+	}
+	.j1, .j2, .j3, .j4{
+		margin-right: 30px;
+		margin-left: 30px;
+	}
+}

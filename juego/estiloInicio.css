@@ -1,0 +1,156 @@
+
+#inicio{
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    grid-template-rows: repeat(4,1fr);
+    justify-items: center;
+    margin: 60px;
+    align-items: center;
+}
+small{
+    grid-area: 4/-4/5/-1;
+    align-self: flex-end;
+}
+#inicio>.boton{
+    grid-area: 4/6/5/8;
+}
+#coin{
+    grid-area: 2/6/2/8;
+    animation: vibrate 2s ease infinite normal backwards;  
+}
+#bounty{
+    grid-area: 2/2/3/6;
+}
+#hunter{
+    grid-area: 2/8/3/12;
+}
+#formulario{
+    display: none;
+}
+#players{
+    height: 250px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+@keyframes vibrate {
+    0% {transform: translate(0);}
+    10% {transform: translate(-2px, -2px);}
+    20% {transform: translate(2px, -2px);}
+    30% {transform: translate(-2px, 2px);}
+    40% {transform: translate(2px, 2px);}
+    50% {transform: translate(-2px, -2px);}
+    60% {transform: translate(2px, -2px);}
+    70% {transform: translate(-2px, 2px);}
+    80% {transform: translate(-2px, -2px);}
+    90% {transform: translate(2px, -2px);}
+    100% {transform: translate(0);}
+}
+form{
+    color: yellow;
+    font-weight: bold;
+    width: 400px;
+    height: 450px;
+    margin: 20px;
+    display: none;
+}
+div>[id^="F"]{
+    display: none;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-size: 30px;
+    background-image: url("../images/formulario.png");
+    
+}
+#form{
+    display: flex;
+    justify-content: center;
+}
+input{
+    height: 20px;
+    font-size: 25px;
+    background-color: yellow;
+    border: 5px solid black;
+}
+#start{
+    display: flex;
+    justify-content: center;
+    opacity : 0.5;
+    margin-top: 30px;
+}
+#pie{
+    display:none;
+    align-items: flex-start;
+    justify-content: center;
+}
+@media (max-width: 1000px){
+    #players {
+        height: 400px;
+        flex-direction: column;
+    }
+}
+@media  (max-width: 1400px) and (min-width:1001px){
+    #form{
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        transform: scale(1);
+    }
+}
+@media  (max-width: 1140px){
+    #inicio{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    #form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transform: scale(1);
+    }
+}
+.munieco{
+    background-image: url("../images/toys/green.gif");
+    background-size: 300px;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 300px;
+    width: 300px;
+}
+.munieco#green{
+    background-image: url("../images/toys/green.gif");
+}
+.munieco#purple{
+    background-image: url("../images/toys/purple.gif");
+}
+.munieco#red{
+    background-image: url("../images/toys/red.gif");
+}
+.munieco#yellow{
+    background-image: url("../images/toys/yellow.gif");
+}
+
+div#fm{
+    display: flex;
+    flex-direction: row;
+    width: 400px;
+    align-items: center;
+
+}
+.formBoton{
+    width: 70px;
+    height: 100px;
+}
+div#l.formBoton{
+    background-image: url("../images/formuarioBoton/botonFormularioL.svg");
+    background-position: left;
+}
+div#r.formBoton{
+    background-image: url("../images/formuarioBoton/botonFormularioR.svg");
+    background-position: right;
+}

@@ -1,0 +1,36 @@
+ 	    *{
+            font-family: '8-bit_operator_8regular';
+        }
+        @font-face {
+            font-family: '8-bit_operator_8regular';
+            src: url('../font/8bitoperatorplus8-regular-webfont.woff') format('woff2'),
+                 url('../font/8bitoperatorplus8-regular-webfont.woff2') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+    	#particles-js{
+        	position:absolute;
+        	top: 0; left: 0;
+        	z-index: -10;
+        	width: 100%;
+        	height: 100%;
+       		background-color: #232741;
+       		background-repeat: no-repeat;
+        	background-size: 20%;
+        	background-position: 50% 50%;
+    	}
+	body{
+		background-color: #232741;
+	}
+	.boton{
+            background-image: url("../images/pulsado.svg");
+            background-size: cover;
+            width: 205px;
+            height: 80px;
+            margin: 20px;
+            font-size: 37px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }

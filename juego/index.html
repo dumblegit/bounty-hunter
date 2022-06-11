@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="stylesheet" href="estiloGeneral.css">
+    <link rel="stylesheet" href="estiloInicio.css">
+    <link rel="icon" href="../images/coin/coinStatic.png">
+    <title>Document</title>
+    <script type="text/JavaScript" src="./index.js">
+        
+    </script>
+</head>
+<body>
+    <!-- ************************************************
+          ||||||||||||||||AUDIOS|||||||||||||||||||||||||
+         ************************************************-->
+    <audio id="audio" autoplay loop>
+        <source src="../audios/pantallas/retroWaveInicio.mp3" type="audio/mpeg" >
+    </audio>
+    <audio id="efectoClick">
+        <source src="../audios/efectos/tiro.wav" type="audio/mpeg" >
+    </audio>
+    <audio id="efectoStart">
+        <source src="../audios/efectos/pasarPartida.wav" type="audio/mpeg" >
+    </audio>
+    <audio id="efectoNegativo">
+        <source src="../audios/efectos/NAVIGATEboton.mp3" type="audio/mpeg" >
+    </audio>
+    <!-- ************************************************
+          ||||||||||||PAGINA DE INICIO|||||||||||||||||||
+         ************************************************-->
+    <div id="inicio">
+        <img id="bounty" src="../images/bounty.svg" height="100px">
+        <img id="coin" src="../images/coin/coinBrillo.gif" height="100px">
+        <img id="hunter" src="../images/hunter.svg" height="100px">
+
+        <div class="boton" style="margin-top: 60px;">START</div>
+        <small>Dibujico del señor <a href="https://www.deviantart.com/alvaroarturonunezjr/art/Warlock-from-Destiny-603531317">Alvaro Arturo Nunez</a></small>
+    </div>
+    <!-- ************************************************
+          ||||||||||||PAGINA DE FORMULARIOS||||||||||||||
+         ************************************************-->
+    <div id="players">
+        <div id="2player" class="boton">2 players</div>
+        <div id="3player" class="boton">3 players</div>
+        <div id="4player" class="boton">4 players</div>
+    </div>
+
+    <div id="form">  
+        <form id="F1" action="/" method="post">
+            <div id="fm">
+                <div id="l" class="formBoton"></div>
+                <div id="red" class="munieco"></div>   
+                <div id="r" class="formBoton"></div>   
+            </div>
+            <label>Player 1 </label><br> 
+            <input type="text" name="Nombre" size="20" maxlength="13" placeholder="nombre..." required>
+        </form>                    
+    
+        <form id="F2" action="/" method="post">  
+            <div id="fm">
+                <div id="l" class="formBoton"></div>
+                <div id="purple" class="munieco"></div>   
+                <div id="r" class="formBoton"></div>   
+            </div>
+            <label>Player 2 </label><br> 
+            <input type="text" name="Nombre" size="20" maxlength="13" placeholder="nombre..." required>
+        </form>                  
+    
+        <form id="F3" action="/" method="post"> 
+            <div id="fm">
+                <div id="l" class="formBoton"></div>
+                <div id="green" class="munieco"></div>   
+                <div id="r" class="formBoton"></div>   
+            </div>
+            <label>Player 3 </label><br>
+            <input type="text" name="Nombre" size="20" maxlength="13" placeholder="nombre..." required>
+        </form>                    
+                    
+        <form id="F4" action="/" method="post">
+            <div id="fm">
+                <div id="l" class="formBoton"></div>
+                <div id="yellow" class="munieco"></div>   
+                <div id="r" class="formBoton"></div>   
+            </div>
+            <label>Player 4 </label><br>
+            <input type="text" name="Nombre" size="20" maxlength="13" placeholder="nombre..." required>
+        </form> 
+    </div>
+
+        <div id="pie">
+            <div id="start" class="boton" onclick="negativo()">JUGAR</div>
+        </div>
+    <!-- ************************************************
+          |||||||||FONDO DE PANTALLA ESTRELLAS|||||||||||
+         ************************************************-->
+    <!-- particles.js container -->
+    <div id="particles-js"></div> 
+    <!-- particles.js lib - https://github.com/VincentGarreau/particles.js -->
+    <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> <!-- stats.js lib -->
+    <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
